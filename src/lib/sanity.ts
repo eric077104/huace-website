@@ -24,7 +24,7 @@ export async function getArticles() { return query(`*[_type == 'article' && defi
 export async function getArticle(slug: string) { return query(`*[_type == 'article' && slug.current == $slug][0] ${articleProjection}`, seedArticles.find((item) => item.slug === slug) ?? null); }
 export async function getSettings() {
   const settings = await query("*[_type == 'siteSettings'][0] { ..., \"defaultSeo\": defaultSeo{..., \"ogImage\": ogImage{..., \"asset\": asset->{url}}} }", siteSettings);
-  return { ...siteSettings, ...settings, seoTitle: settings.seoTitle ?? settings.defaultSeo?.title ?? siteSettings.seoTitle, seoDescription: settings.seoDescription ?? settings.defaultSeo?.description ?? siteSettings.seoDescription };
+  return { ...siteSettings, ...settings, facebookUrl: settings.facebookUrl || settings.socialUrl || siteSettings.facebookUrl, instagramUrl: settings.instagramUrl || siteSettings.instagramUrl, threadsUrl: settings.threadsUrl || siteSettings.threadsUrl, seoTitle: settings.seoTitle ?? settings.defaultSeo?.title ?? siteSettings.seoTitle, seoDescription: settings.seoDescription ?? settings.defaultSeo?.description ?? siteSettings.seoDescription };
 }
 
 export function docSeo(doc: { seo?: { title?: string; description?: string; ogImage?: { asset?: { url?: string } } }; title?: string }) {

@@ -8,6 +8,7 @@
 | `click_email` | 點擊 Email 連結 | 無 |
 | `click_phone` | 點擊電話連結 | 無 |
 | `line_click` | 點擊「加入 LINE 官方帳號」連結 | GA4 自訂事件；Meta Pixel 標準 `Contact` 事件 |
+| `social_click` | 點擊 Facebook、Instagram 或 Threads 圖示連結 | `platform`（`facebook`、`instagram` 或 `threads`） |
 | `cta_click` | 點擊主要洽談或服務 CTA | `cta_name` |
 | `service_page_view` | 開啟服務詳細頁 | `service_name` |
 | `case_study_view` | 開啟案例詳細頁 | `case_name` |

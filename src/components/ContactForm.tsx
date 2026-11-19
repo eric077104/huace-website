@@ -5,7 +5,7 @@ import { z } from "zod";
 import { track } from "./Analytics";
 const needs = ["行銷策略", "社群及內容", "攝影／影音", "數位廣告", "AI／數位應用", "顧問／教育訓練", "其他"];
 const clientSchema = z.object({ name: z.string().trim().min(1, "請填寫姓名").max(100), email: z.string().trim().email("請填寫正確 Email").max(254), phoneOrLine: z.string().trim().min(1, "請提供電話或 LINE 聯絡方式").max(100) });
-export default function ContactForm() {
+export default function ContactForm({ privacyNotice }: { privacyNotice: string }) {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
   const [values, setValues] = useState<Record<string, string>>({});
@@ -31,7 +31,7 @@ export default function ContactForm() {
     <div className="field"><label htmlFor="startTime">預計開始時間（選填）</label><select id="startTime" name="startTime" value={values.startTime || ""} onChange={update}><option value="">請選擇</option><option>立即／一個月內</option><option>一至三個月</option><option>三個月後</option><option>尚未確定</option></select></div>
     <div className="field full"><label htmlFor="message">需求說明</label><textarea id="message" name="message" value={values.message || ""} onChange={update}/></div>
     <div aria-hidden="true" style={{position:"absolute",left:"-10000px"}}><label htmlFor="website">Website</label><input id="website" name="website" tabIndex={-1} autoComplete="off"/></div>
-    <div className="field full"><label className="consent"><input type="checkbox" name="consent" required/><span>我已閱讀並同意畫策為回覆本次詢問而蒐集及使用上述資料。資料將用於聯絡及需求評估；如需查詢或要求刪除，請透過正式聯絡管道提出。<span aria-hidden="true">*</span></span></label></div>
+    <div className="field full"><label className="consent"><input type="checkbox" name="consent" required/><span>我已閱讀並同意以下個資告知：{privacyNotice}<span aria-hidden="true">*</span></span></label></div>
     <div className="field full">{process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && <div className="cf-turnstile" data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} data-theme="light"/>}</div>
     <div className="field full"><button className="button button-fill" type="submit" disabled={status === "sending"}>{status === "sending" ? "送出中…" : "送出詢問　↗"}</button>{status !== "idle" && <p className={`form-alert ${status === "error" ? "error" : ""}`} role="status">{message}</p>}</div>
   </div>{process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive"/>}</form>;

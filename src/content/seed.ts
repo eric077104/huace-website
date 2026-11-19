@@ -17,7 +17,7 @@ export const solutions: Solution[] = [
 export const cases: CaseStudy[] = [{ slug: "case-placeholder", name: "案例內容準備中", category: "精選案例", tags: ["Strategy", "Content"], description: "案例將於取得公開授權並確認專案內容後更新。", placeholder: true }];
 export const categories = ["品牌策略", "內容與創意", "成效行銷", "AI 與數位應用"];
 export const articles: Article[] = [{ slug: "insights-coming-soon", title: "Insights 內容準備中", category: "品牌策略", excerpt: "文章將於內容確認後發布。", publishedAt: "2026-11-19", body: "" }];
-export const siteSettings: SiteSettings = { companyName: "畫策管理顧問有限公司", brandName: "畫策整合行銷", email: "[請設定聯絡 Email]", phone: "[請設定聯絡電話]", lineUrl: "", socialUrl: "", insightsEnabled: false, seoTitle: "畫策整合行銷 HC｜讓行銷，成為企業的成長系統", seoDescription: "整合行銷策略、品牌內容、數位廣告與 AI 數位應用，協助企業建立可持續運作的行銷成長系統。", defaultSeo: { title: "畫策整合行銷 HC｜讓行銷，成為企業的成長系統", description: "整合行銷策略、品牌內容、數位廣告與 AI 數位應用，協助企業建立可持續運作的行銷成長系統。" } };
+export const siteSettings: SiteSettings = { companyName: "畫策管理顧問有限公司", brandName: "畫策整合行銷", email: "[請設定聯絡 Email]", phone: "[請設定聯絡電話]", lineUrl: "", socialUrl: "", privacyNotice: "[請於 CMS 填入經確認的個資告知內容]", insightsEnabled: false, seoTitle: "畫策整合行銷 HC｜讓行銷，成為企業的成長系統", seoDescription: "整合行銷策略、品牌內容、數位廣告與 AI 數位應用，協助企業建立可持續運作的行銷成長系統。", defaultSeo: { title: "畫策整合行銷 HC｜讓行銷，成為企業的成長系統", description: "整合行銷策略、品牌內容、數位廣告與 AI 數位應用，協助企業建立可持續運作的行銷成長系統。" } };
 
 export const homePage: HomePageContent = {
   title: "讓行銷，成為企業的成長系統。",

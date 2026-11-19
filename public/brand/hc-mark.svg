@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="750" height="448"
+     viewBox="-24 -24 750 448"
+     fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">HC Marketing mark</title>
+  <desc id="desc">Geometric charcoal H with a gradient open C dissolving into pixels.</desc>
+  <defs>
+    <linearGradient id="hc-c-grad" gradientUnits="userSpaceOnUse"
+                      x1="0" y1="0" x2="0" y2="400">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+  <g id="hc-mark">
+    <path id="h" fill="#111827" d="M 0 0 L 78 0 L 78 153 L 230 153 L 230 0 L 308 0 L 308 109.67 A 214 214 0 0 0 308 290.33 L 308 400 L 230 400 L 230 227 L 78 227 L 78 400 L 0 400 Z"/>
+    <path id="c" fill="url(#hc-c-grad)" d="M 625.13 42.4 A 200 200 0 1 0 625.13 357.6 L 577.11 296.14 A 122 122 0 1 1 577.11 103.86 Z"/>
+    <g id="pixels">
+      <rect x="572.87" y="93.82" width="15.99" height="15.99" fill="url(#hc-c-grad)"/>
+      <rect x="581.32" y="79.5" width="17.43" height="17.43" fill="url(#hc-c-grad)"/>
+      <rect x="594.74" y="65.16" width="17.76" height="17.76" fill="url(#hc-c-grad)"/>
+      <rect x="604.42" y="51.2" width="17.76" height="17.76" fill="url(#hc-c-grad)"/>
+      <rect x="615.83" y="36.99" width="16.5" height="16.5" fill="url(#hc-c-grad)"/>
+      <rect x="620.76" y="31.74" width="14.74" height="14.74" fill="url(#hc-c-grad)"/>
+      <rect x="584.35" y="97.95" width="13.01" height="13.01" fill="url(#hc-c-grad)"/>
+      <rect x="596.68" y="81.52" width="13.96" height="13.96" fill="url(#hc-c-grad)"/>
+      <rect x="610.8" y="71.25" width="13.33" height="13.33" fill="url(#hc-c-grad)"/>
+      <rect x="622.78" y="56" width="12.76" height="12.76" fill="url(#hc-c-grad)" fill-opacity="0.98"/>
+      <rect x="639.48" y="47.06" width="10.74" height="10.74" fill="url(#hc-c-grad)" fill-opacity="0.92"/>
+      <rect x="591.83" y="107.62" width="10.42" height="10.42" fill="url(#hc-c-grad)" fill-opacity="0.96"/>
+      <rect x="605.28" y="92.48" width="11.12" height="11.12" fill="url(#hc-c-grad)" fill-opacity="0.95"/>
+      <rect x="623.68" y="81.14" width="10.77" height="10.77" fill="url(#hc-c-grad)" fill-opacity="0.92"/>
+      <rect x="638.1" y="65.77" width="9.33" height="9.33" fill="url(#hc-c-grad)" fill-opacity="0.88"/>
+      <rect x="654.26" y="58.24" width="8.04" height="8.04" fill="url(#hc-c-grad)" fill-opacity="0.8"/>
+      <rect x="606.95" y="110.1" width="7.8" height="7.8" fill="url(#hc-c-grad)" fill-opacity="0.86"/>
+      <rect x="624.63" y="94.98" width="8.35" height="8.35" fill="url(#hc-c-grad)" fill-opacity="0.84"/>
+      <rect x="643.39" y="85.25" width="7.32" height="7.32" fill="url(#hc-c-grad)" fill-opacity="0.78"/>
+      <rect x="657.13" y="72.46" width="7.2" height="7.2" fill="url(#hc-c-grad)" fill-opacity="0.7"/>
+      <rect x="611.31" y="122.11" width="6.14" height="6.14" fill="url(#hc-c-grad)" fill-opacity="0.74"/>
+      <rect x="630.2" y="107.61" width="6.47" height="6.47" fill="url(#hc-c-grad)" fill-opacity="0.7"/>
+      <rect x="653.34" y="96.49" width="5.94" height="5.94" fill="url(#hc-c-grad)" fill-opacity="0.64"/>
+      <rect x="677.69" y="87.63" width="4.85" height="4.85" fill="url(#hc-c-grad)" fill-opacity="0.56"/>
+      <rect x="628.93" y="125.71" width="4.83" height="4.83" fill="url(#hc-c-grad)" fill-opacity="0.58"/>
+      <rect x="653.74" y="114.55" width="4.5" height="4.5" fill="url(#hc-c-grad)" fill-opacity="0.52"/>
+      <rect x="572.76" y="291.28" width="16.27" height="16.27" fill="url(#hc-c-grad)"/>
+      <rect x="581.81" y="302.71" width="17.46" height="17.46" fill="url(#hc-c-grad)"/>
+      <rect x="594.9" y="316.85" width="17.96" height="17.96" fill="url(#hc-c-grad)"/>
+      <rect x="602.76" y="332.42" width="17.24" height="17.24" fill="url(#hc-c-grad)"/>
+      <rect x="615.24" y="344.51" width="16.31" height="16.31" fill="url(#hc-c-grad)"/>
+      <rect x="621.46" y="352.91" width="14.35" height="14.35" fill="url(#hc-c-grad)"/>
+      <rect x="584.59" y="290.86" width="13.04" height="13.04" fill="url(#hc-c-grad)"/>
+      <rect x="595.53" y="303.66" width="13.75" height="13.75" fill="url(#hc-c-grad)"/>
+      <rect x="611.06" y="317.31" width="13.25" height="13.25" fill="url(#hc-c-grad)"/>
+      <rect x="622.5" y="332.23" width="12.37" height="12.37" fill="url(#hc-c-grad)" fill-opacity="0.98"/>
+      <rect x="639.1" y="340.5" width="11.22" height="11.22" fill="url(#hc-c-grad)" fill-opacity="0.92"/>
+      <rect x="591.72" y="283.26" width="10.27" height="10.27" fill="url(#hc-c-grad)" fill-opacity="0.96"/>
+      <rect x="606.05" y="297.23" width="10.82" height="10.82" fill="url(#hc-c-grad)" fill-opacity="0.95"/>
+      <rect x="624.37" y="308.64" width="10.24" height="10.24" fill="url(#hc-c-grad)" fill-opacity="0.92"/>
+      <rect x="636.67" y="325.06" width="9.69" height="9.69" fill="url(#hc-c-grad)" fill-opacity="0.88"/>
+      <rect x="653.9" y="333.38" width="8.27" height="8.27" fill="url(#hc-c-grad)" fill-opacity="0.8"/>
+      <rect x="607.63" y="282.3" width="8.03" height="8.03" fill="url(#hc-c-grad)" fill-opacity="0.86"/>
+      <rect x="624.29" y="295.97" width="8.28" height="8.28" fill="url(#hc-c-grad)" fill-opacity="0.84"/>
+      <rect x="643.79" y="306.11" width="7.57" height="7.57" fill="url(#hc-c-grad)" fill-opacity="0.78"/>
+      <rect x="657.48" y="318.75" width="6.95" height="6.95" fill="url(#hc-c-grad)" fill-opacity="0.7"/>
+      <rect x="611.1" y="272.15" width="6.07" height="6.07" fill="url(#hc-c-grad)" fill-opacity="0.74"/>
+      <rect x="631.05" y="286.22" width="6.63" height="6.63" fill="url(#hc-c-grad)" fill-opacity="0.7"/>
+      <rect x="653.49" y="296.15" width="5.99" height="5.99" fill="url(#hc-c-grad)" fill-opacity="0.64"/>
+      <rect x="678.17" y="308.25" width="5.13" height="5.13" fill="url(#hc-c-grad)" fill-opacity="0.56"/>
+      <rect x="630.65" y="269.44" width="4.61" height="4.61" fill="url(#hc-c-grad)" fill-opacity="0.58"/>
+      <rect x="653.47" y="279.72" width="4.45" height="4.45" fill="url(#hc-c-grad)" fill-opacity="0.52"/>
+    </g>
+  </g>
+</svg>

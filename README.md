@@ -52,4 +52,10 @@ npm run dev
 
 ## 內容與上線前素材
 
-目前採文字 wordmark 與中性色設計 token（`src/app/globals.css`）。上線前請公司提供正式 Logo、品牌色、Email／電話／LINE、可公開案例與影像、隱私告知及政策內容，並建立公司持有的 Sanity、Vercel、Resend、Cloudflare、GA4、Meta 與 Google Ads 帳號（依使用需求）。
+## HC 設計 Token
+
+視覺 token 統一維護於 `src/app/globals.css` 的 `:root`。主要色彩為 charcoal `#111827`、electric blue `#2563EB`、cyan `#06B6D4`（只用於少量互動提示）、白色 `#FFFFFF`、淺底 `#F9FAFB`、正文 `#4B5563`、次要文字 `#6B7280`、分隔線 `#E5E7EB`。大面積深色區使用 charcoal。白底小字避免使用 cyan，以保留 WCAG AA 對比。
+
+字體由 `next/font` 載入：英文標題 Montserrat SemiBold/Bold、英文內文 Inter、中文 Noto Sans TC。標題使用流動字級與緊湊行高，中文正文行高為 1.9。版面使用大留白、細分隔線、最多 2px 直角，避免漸層及裝飾圖示。`--content-width`、`--space-section`、色彩和字體變數可集中調整。
+
+核准 Logo 位於 `public/brand/`：頁首使用 `hc-horizontal.svg`，深色頁尾使用 `hc-horizontal-white.svg`，完整 HC mark 保留在品牌圖檔中。`hc-avatar.png` 作為 favicon、Apple icon 與預設 OG 圖基底；目前 OG 圖為該核准頭像素材。真實案例攝影尚未提供，案例區會以明確標示的淺色影像佔位版面呈現，素材確認後再替換。

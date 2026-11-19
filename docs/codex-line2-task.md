@@ -1,0 +1,1 @@
+Change the seed/default lineUrl from https://lihi1.cc/8QRPx to https://lihi1.cc/8QRPx everywhere (seed content, defaults, docs). Nothing else. Run lint, typecheck, build; commit "Use lihi LINE short link".

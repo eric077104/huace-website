@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 /** Lightweight seeded pixel field. The static CSS glow is visible before the canvas initializes. */
-export default function HeroField({ compact = false }: { compact?: boolean }) {
+export default function HeroField({ compact = false, mobileQuiet = false }: { compact?: boolean; mobileQuiet?: boolean }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -12,6 +12,7 @@ export default function HeroField({ compact = false }: { compact?: boolean }) {
     const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isQuietMobile = () => mobileQuiet && window.matchMedia("(max-width: 767px)").matches;
     const fine = window.matchMedia("(pointer: fine)").matches;
     let width = 0, height = 0, dpr = 1, frame = 0, last = 0, time = 0, visible = false;
     let offscreen: HTMLCanvasElement, base: CanvasRenderingContext2D | null;
@@ -36,7 +37,7 @@ export default function HeroField({ compact = false }: { compact?: boolean }) {
       for (let x = 0; x < width; x += cell * 4) { base.beginPath(); base.moveTo(x + .5, 0); base.lineTo(x + .5, height); base.stroke(); }
       for (let y = 0; y < height; y += cell * 4) { base.beginPath(); base.moveTo(0, y + .5); base.lineTo(width, y + .5); base.stroke(); }
       // Converging low-contrast data paths.
-      for (let i = 0; i < 8; i++) {
+      for (let i = 0; i < (isQuietMobile() ? 0 : 8); i++) {
         const y = height * (.14 + i * .1); const endY = focusY + (i - 3.5) * 10;
         const g = base.createLinearGradient(0, y, focusX, endY); g.addColorStop(0, "rgba(37,99,235,0)"); g.addColorStop(1, "rgba(6,182,212,.5)");
         base.strokeStyle = g; base.lineWidth = 1; base.beginPath(); base.moveTo(0, y); base.bezierCurveTo(width * .34, y, width * .5, endY, focusX, endY); base.stroke();
@@ -44,10 +45,11 @@ export default function HeroField({ compact = false }: { compact?: boolean }) {
       cells = []; const cols = Math.ceil(width / cell), rows = Math.ceil(height / cell), diag = Math.hypot(width, height);
       for (let gx = 0; gx < cols; gx++) for (let gy = 0; gy < rows; gy++) {
         const x = gx * cell, y = gy * cell, d = Math.hypot(x - focusX, y - focusY) / diag;
-        const chance = Math.exp(-3 * d * d / (.34 * .34)) * .62;
+        const density = isQuietMobile() ? .2 : .62, sigma = isQuietMobile() ? .28 : .34;
+        const chance = Math.exp(-3 * d * d / (sigma * sigma)) * density;
         if (random() < chance && (compact ? y > focusY + 24 : x > width * .5)) cells.push({ x, y, a: .08 + random() * .5, phase: random() * Math.PI * 2, period: 3 + random() * 3 });
       }
-      const count = window.innerWidth < 900 ? 8 : 16; comets = [];
+      const count = isQuietMobile() ? 0 : window.innerWidth < 900 ? 8 : 16; comets = [];
       for (let i = 0; i < count; i++) comets.push({ row: Math.floor(random() * rows), x: random() * width, speed: 60 + random() * 80, len: 4 + random() * 10 });
     };
     const draw = (now: number) => {
@@ -83,21 +85,21 @@ export default function HeroField({ compact = false }: { compact?: boolean }) {
     if (fine) canvas.addEventListener("pointermove", onPointer);
     resize();
     return () => { cancelAnimationFrame(frame); clearTimeout(resizeTimer); observer.disconnect(); window.removeEventListener("resize", onResize); document.removeEventListener("visibilitychange", onVisibility); canvas.removeEventListener("pointermove", onPointer); };
-  }, [compact]);
+  }, [compact, mobileQuiet]);
   return <canvas ref={canvasRef} className="field-canvas" aria-hidden="true" />;
 }
 
-export function GrowthLoop() {
+export function GrowthLoop({ calm = false }: { calm?: boolean }) {
   const [active, setActive] = useState(0);
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || (calm && window.matchMedia("(max-width: 767px)").matches)) return;
     const timer = window.setInterval(() => setActive((value) => (value + 1) % 4), 3000);
     return () => window.clearInterval(timer);
-  }, []);
+  }, [calm]);
   const nodes = [["Strategy", "策略"], ["Content", "內容與創意"], ["Performance", "成效行銷"], ["AI & Digital", "AI 與數位應用"]];
   return <div className="loop" aria-label="Strategy、Content、Performance、AI & Digital 成長循環">
-    <svg viewBox="0 0 500 500" aria-hidden="true"><circle cx="250" cy="250" r="190" fill="none" stroke="rgba(255,255,255,.05)" strokeWidth="1"/><circle cx="250" cy="250" r="144" fill="none" stroke="rgba(255,255,255,.12)" strokeWidth="1"/><circle cx="250" cy="250" r="101" fill="none" stroke="rgba(255,255,255,.08)" strokeWidth="1" strokeDasharray="2 6"/><circle cx="250" cy="250" r="144" fill="none" stroke="url(#loop-gradient)" strokeWidth="2" strokeDasharray="226 679" strokeDashoffset={-active * 226} /><defs><linearGradient id="loop-gradient"><stop stopColor="#2563EB"/><stop offset="1" stopColor="#06B6D4"/></linearGradient></defs>{Array.from({length:8},(_,i)=><rect key={i} x={250+144*Math.cos(i*Math.PI/4)-3} y={250+144*Math.sin(i*Math.PI/4)-3} width="6" height="6" fill={i===active?"#67E8F9":"rgba(147,197,253,.55)"}/>)}</svg>
-    <div className="core"><Image src="/brand/hc-mark-white.svg" width={112} height={112} alt=""/><span>GROWTH SYSTEM</span></div>
+    <svg className={calm ? "calm-loop-svg" : ""} viewBox="0 0 500 500" aria-hidden="true"><circle className="loop-outer" cx="250" cy="250" r="190" fill="none" stroke="rgba(255,255,255,.05)" strokeWidth="1"/><circle className="loop-main" cx="250" cy="250" r="144" fill="none" stroke="rgba(255,255,255,.12)" strokeWidth="1"/><circle className="loop-inner" cx="250" cy="250" r="101" fill="none" stroke="rgba(255,255,255,.08)" strokeWidth="1" strokeDasharray="2 6"/><circle className="loop-arc" cx="250" cy="250" r="144" fill="none" stroke="url(#loop-gradient)" strokeWidth="2" strokeDasharray="226 679" strokeDashoffset={calm ? -226 : -active * 226} /><defs><linearGradient id="loop-gradient"><stop stopColor="#2563EB"/><stop offset="1" stopColor="#06B6D4"/></linearGradient></defs><g className={calm ? "packet-ring" : ""}>{Array.from({length:8},(_,i)=><rect className="loop-packet" key={i} x={250+144*Math.cos(i*Math.PI/4)-3} y={250+144*Math.sin(i*Math.PI/4)-3} width="6" height="6" fill={i===active?"#67E8F9":"rgba(147,197,253,.55)"}/>)}</g></svg>
+    <div className={`core ${calm ? "calm-core" : ""}`}><Image src="/brand/hc-mark-white.svg" width={112} height={112} alt=""/><span>GROWTH SYSTEM</span></div>
     {nodes.map(([name, label], i) => <div key={name} className={`node ${active === i ? "is-active" : ""}`} style={{ left: i === 1 ? "90%" : i === 3 ? "10%" : "50%", top: i === 0 ? "5%" : i === 2 ? "95%" : "50%", transition: "transform .4s,opacity .4s" }}><span className="idx">0{i + 1}</span><div><div className="nm">{name}</div><div className="zh">{label}</div></div></div>)}
   </div>;
 }

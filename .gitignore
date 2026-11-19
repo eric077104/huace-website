@@ -1,0 +1,7 @@
+.npm-cache/
+node_modules/
+.next/
+.env*
+!.env.example
+
+tsconfig.tsbuildinfo

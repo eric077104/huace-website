@@ -85,8 +85,8 @@ h3 { line-height:1.35; }
 .cta-band { padding-block:clamp(4rem, 9vw, 7rem); background:var(--color-dark); color:white; }
 .cta-band h2, .cta-band .eyebrow { color:white; }
 .cta-band .body-copy { color:#D1D5DB; }
-.cta-band .button { border-color:#93C5FD; color:#BFDBFE; }
-.cta-band .button:hover { background:#2563EB; color:#fff; }
+.cta-band .button { border-color:#FFFFFF; color:#FFFFFF; }
+.cta-band .button:hover { background:#2563EB; color:#FFFFFF; }
 .site-footer { padding-block:4rem 1.5rem; background:var(--color-dark); color:#fff; }
 .site-footer a:hover { color:#67E8F9; }
 .site-footer .body-copy, .site-footer .footer-link { color:#D1D5DB; }
@@ -104,6 +104,8 @@ input[type=checkbox] { width:1.05rem; height:1.05rem; flex:none; accent-color:va
 .checks { display:flex; flex-wrap:wrap; gap:.75rem 1.2rem; }
 .checks label, .consent { display:flex; align-items:flex-start; gap:.5rem; color:var(--color-body); font-size:.9rem; font-weight:400!important; }
 .form-alert { padding:.75rem 1rem; border-left:2px solid var(--color-accent); background:var(--color-surface); }
+.field-error { margin:0; color:var(--color-error); font-size:.875rem; }
+.field [aria-invalid="true"] { border-color:var(--color-error); }
 .error { color:var(--color-error); border-color:var(--color-error); }
 .article-row { display:grid; grid-template-columns:minmax(12rem,.6fr) 1.4fr auto; gap:1.5rem; align-items:start; text-decoration:none; }
 .article-row strong { color:var(--color-primary); }

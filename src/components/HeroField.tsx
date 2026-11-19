@@ -13,7 +13,7 @@ export default function HeroField({ compact = false }: { compact?: boolean }) {
     if (!ctx) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const fine = window.matchMedia("(pointer: fine)").matches;
-    let width = 0, height = 0, dpr = 1, frame = 0, last = 0, time = 0, visible = true;
+    let width = 0, height = 0, dpr = 1, frame = 0, last = 0, time = 0, visible = false;
     let offscreen: HTMLCanvasElement, base: CanvasRenderingContext2D | null;
     let cells: { x: number; y: number; a: number; phase: number; period: number }[] = [];
     let comets: { row: number; x: number; speed: number; len: number }[] = [];
@@ -71,9 +71,9 @@ export default function HeroField({ compact = false }: { compact?: boolean }) {
         for (let i = 0; i < c.len; i++) { const a = .55 * (1 - i / c.len); ctx.fillStyle = `rgba(6,182,212,${a})`; ctx.fillRect(c.x - i * cell, y + 3, cell - 5, cell - 5); }
         ctx.shadowColor = "#06B6D4"; ctx.shadowBlur = 12; ctx.fillStyle = "rgba(249,250,251,.9)"; ctx.fillRect(c.x + 3, y + 3, cell - 5, cell - 5); ctx.shadowBlur = 0;
       }
-      if (!reduce) frame = requestAnimationFrame(draw);
+      if (!reduce && visible) frame = requestAnimationFrame(draw);
     };
-    const resize = () => { width = canvas.clientWidth; height = canvas.clientHeight; dpr = Math.min(2, window.devicePixelRatio || 1); canvas.width = Math.ceil(width * dpr); canvas.height = Math.ceil(height * dpr); paintBase(); if (!frame) frame = requestAnimationFrame(draw); };
+    const resize = () => { width = canvas.clientWidth; height = canvas.clientHeight; dpr = Math.min(2, window.devicePixelRatio || 1); canvas.width = Math.ceil(width * dpr); canvas.height = Math.ceil(height * dpr); paintBase(); draw(performance.now()); };
     let resizeTimer: ReturnType<typeof setTimeout>;
     const onResize = () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(resize, 150); };
     const onVisibility = () => { if (document.hidden) { if (frame) cancelAnimationFrame(frame); frame = 0; } else if (visible && !reduce && !frame) frame = requestAnimationFrame(draw); };

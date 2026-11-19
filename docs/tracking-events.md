@@ -7,7 +7,7 @@
 | `contact_form_submit` | 合作表單成功提交 | 無個資 |
 | `click_email` | 點擊 Email 連結 | 無 |
 | `click_phone` | 點擊電話連結 | 無 |
-| `click_line` | 點擊 LINE 連結 | 無 |
+| `line_click` | 點擊「加入 LINE 官方帳號」連結 | GA4 自訂事件；Meta Pixel 標準 `Contact` 事件 |
 | `cta_click` | 點擊主要洽談或服務 CTA | `cta_name` |
 | `service_page_view` | 開啟服務詳細頁 | `service_name` |
 | `case_study_view` | 開啟案例詳細頁 | `case_name` |

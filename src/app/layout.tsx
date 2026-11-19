@@ -23,5 +23,5 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const settings = await getSettings();
-  return <html lang="zh-Hant" className={`${noto.variable} ${inter.variable} ${montserrat.variable} ${mono.variable}`}><body><Header insightsEnabled={settings.insightsEnabled}/><main id="main">{children}</main><Footer settings={settings}/><Analytics/></body></html>;
+  return <html lang="zh-Hant" className={`${noto.variable} ${inter.variable} ${montserrat.variable} ${mono.variable}`}><body><Header insightsEnabled={settings.insightsEnabled} lineUrl={settings.lineUrl}/><main id="main">{children}</main><Footer settings={settings}/><Analytics/></body></html>;
 }

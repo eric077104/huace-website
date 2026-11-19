@@ -14,7 +14,8 @@ declare global {
 export function track(event: string, params: Record<string, string> = {}) {
   if (typeof window === "undefined") return;
   window.gtag?.("event", event, params);
-  window.fbq?.("trackCustom", event, params);
+  if (event === "line_click") window.fbq?.("track", "Contact", params);
+  else window.fbq?.("trackCustom", event, params);
   if (event === "contact_form_submit" && process.env.NEXT_PUBLIC_GOOGLE_ADS_ID && process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL) {
     window.gtag?.("event", "conversion", { send_to: `${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID}/${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL}` });
   }

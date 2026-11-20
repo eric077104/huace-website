@@ -10,7 +10,7 @@ function doPost(e) {
     const lock = LockService.getScriptLock();
     lock.waitLock(10000);
     try {
-      const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
+      const sheet = SpreadsheetApp.openById(properties.getProperty("SHEET_ID")).getSheets()[0];
       const row = [
         Utilities.formatDate(new Date(), "Asia/Taipei", "yyyy-MM-dd HH:mm:ss"),
         safeCell(body.name),

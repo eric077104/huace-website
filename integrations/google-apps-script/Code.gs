@@ -24,7 +24,9 @@ function doPost(e) {
         body.consent === true ? "是" : "否",
         safeCell(body.sourcePage)
       ];
-      sheet.appendRow(row);
+      const target = sheet.getRange(sheet.getLastRow() + 1, 1, 1, row.length);
+      target.setNumberFormat("@");
+      target.setValues([row]);
     } finally {
       lock.releaseLock();
     }

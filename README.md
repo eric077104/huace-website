@@ -1,4 +1,7 @@
-# HC 畫策整合行銷官方網站
+# huace-website
+HC Huace Digital Marketing Official Website
+
+## HC 畫策整合行銷官方網站
 
 Next.js App Router、TypeScript、Tailwind CSS 與 Sanity。未設定 Sanity 帳號時，網站以 `src/content/seed.ts` 內的型別化初始內容運作；Sanity 已設定時，服務、方案、案例、文章與網站設定由 CMS 提供。管理介面位於 `/studio`。
 

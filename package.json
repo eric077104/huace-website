@@ -5,20 +5,24 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "sanity:seed": "tsx scripts/seed-sanity.ts"
   },
   "dependencies": {
+    "@opennextjs/cloudflare": "^1.20.17",
     "@sanity/client": "^6.25.0",
-    "@sanity/vision": "^3.80.0",
     "@sanity/insert-menu": "^1.1.11",
+    "@sanity/vision": "^3.80.0",
     "next": "^15.1.0",
     "next-sanity": "^9.8.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "resend": "^4.0.0",
     "sanity": "^3.80.0",
     "zod": "^3.24.1"
   },
@@ -31,6 +35,7 @@
     "eslint-config-next": "^15.1.0",
     "tailwindcss": "^4.0.0",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "wrangler": "^4.165.0"
   }
 }

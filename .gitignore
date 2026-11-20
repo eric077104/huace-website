@@ -1,6 +1,9 @@
 .npm-cache/
 node_modules/
 .next/
+.open-next/
+.wrangler/
+.dev.vars
 .env*
 !.env.example
 

@@ -20,14 +20,13 @@ npm run dev
 
 | 變數 | 用途／帳號 |
 | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | 正式網站網址；Vercel 專案設定，供 canonical、sitemap 與結構化資料使用 |
+| `NEXT_PUBLIC_SITE_URL` | 正式網站網址；Cloudflare Worker 環境設定，供 canonical、sitemap 與結構化資料使用 |
 | `NEXT_PUBLIC_SANITY_PROJECT_ID` | Sanity 專案 ID；Sanity 管理帳號 |
 | `NEXT_PUBLIC_SANITY_DATASET` | Sanity dataset，通常為 `production` |
 | `SANITY_API_READ_TOKEN` | 可讀取草稿或私有 dataset 時使用；Sanity API token，僅伺服器端 |
-| `SANITY_API_WRITE_TOKEN` | 匯入初始資料及儲存表單詢問；Sanity Editor 權限 token，僅伺服器端 |
-| `RESEND_API_KEY` | 表單通知寄信；Resend 帳號 |
-| `CONTACT_TO_EMAIL` | 接收詢問的公司信箱，由網站管理者設定 |
-| `CONTACT_FROM_EMAIL` | Resend 已驗證網域上的寄件地址 |
+| `SANITY_API_WRITE_TOKEN` | 匯入初始資料；Sanity Editor 權限 token，僅伺服器端 |
+| `GOOGLE_SCRIPT_URL` | Apps Script 網頁應用程式 `/exec` 部署網址 |
+| `GOOGLE_SCRIPT_SECRET` | 與 Apps Script `FORM_SECRET` 相同的私密字串 |
 | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | 表單反垃圾驗證的公開 Site Key；Cloudflare 帳號 |
 | `TURNSTILE_SECRET_KEY` | Turnstile 私密驗證金鑰；Cloudflare 帳號，僅伺服器端 |
 | `NEXT_PUBLIC_GA4_ID` | GA4 Measurement ID；Google Analytics 帳號 |
@@ -43,15 +42,17 @@ npm run dev
 2. 複製 Project ID、建立 API token，設定於本機 `.env.local`。Studio 的編輯人員應使用 Sanity 登入與角色權限管理。
 3. 啟動網站後開啟 `/studio`，以 Sanity 帳號登入並依畫面引導授權。
 4. 要匯入初始服務、方案、案例占位項目、分類及網站設定，執行 `npm run sanity:seed`。
-5. 網站讀取 CMS 時會以 CMS 資料為準；若未設定 Project ID，使用 repo seed。正式環境建議在 Vercel 設定 Sanity ID、dataset 與必要 token。
+5. 網站讀取 CMS 時會以 CMS 資料為準；若未設定 Project ID，使用 repo seed。正式環境建議在 Cloudflare 設定 Sanity ID、dataset 與必要 token。
 
 ## CMS 編輯指南
 
 登入 `/studio` 後，左側選單以中文顯示內容類型。先在「網站設定」更新品牌名稱、公司名稱、聯絡方式、LINE／社群連結、個資告知文案、預設 SEO 與 Insights 顯示開關。正式上線前請由公司確認個資告知內容。首頁文字在「首頁內容」，About 內容在「About 頁面」。服務領域可編輯定位、解決問題、內容、對象、執行方式及搭配服務；整合方案可調整名稱及說明。案例只有取得公開授權並確認專案資訊後才填真實內容，初始項目明確標示為占位。文章先建立分類，再新增文章、填寫 SEO 與發布日期；Insights 開關關閉時，導覽與頁面會隱藏。編輯後使用 Publish 發布；未發布草稿不應視為正式網站內容。
 
-## Vercel 部署
+## Cloudflare Workers 部署
 
-將 Git repository 匯入公司持有的 Vercel 帳號，使用 Next.js 預設建置設定。於 Vercel Project Settings → Environment Variables 填入正式環境所需變數，再部署。設定正式網址 `NEXT_PUBLIC_SITE_URL` 及 DNS；部署後提交 `/sitemap.xml` 至 Google Search Console，並確認 GA4、表單通知及 Turnstile。開發、Preview、Production 的憑證應分開設定。
+在 Cloudflare Dashboard 選 Workers & Pages > Create > Import repository，連接 GitHub repository。Build command 設為 `npx opennextjs-cloudflare build`，Deploy command 設為 `npx opennextjs-cloudflare deploy`。在 Worker 設定中加入正式環境變數與 Secrets，包括 `GOOGLE_SCRIPT_URL`、`GOOGLE_SCRIPT_SECRET`、Turnstile 私密金鑰、Sanity 設定及分析 ID；公開 `NEXT_PUBLIC_` 值可設為一般變數，私密值須設為 Secret。設定正式網址 `NEXT_PUBLIC_SITE_URL` 及 DNS；部署後提交 `/sitemap.xml` 至 Google Search Console，並確認 GA4、表單及 Turnstile。開發、Preview、Production 的憑證應分開設定。
+
+Google 試算表與 Apps Script 設定步驟請見 [`integrations/google-apps-script/README.md`](integrations/google-apps-script/README.md)。
 
 ## 內容與上線前素材
 

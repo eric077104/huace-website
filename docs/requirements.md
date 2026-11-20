@@ -348,7 +348,7 @@ Services 頁應具備服務總覽及服務詳細介紹能力。
 - TypeScript：建議使用。
 - CSS：Tailwind CSS、CSS Modules 或其他可維護方案。
 - CMS：可使用 Headless CMS 或適合企業自行管理的 CMS。
-- Hosting：Vercel 或其他可靠服務。
+- Hosting：Cloudflare Workers。
 - Form：具備安全驗證及通知功能的表單系統。
 - Analytics：Google Analytics 4。
 - Search：Google Search Console。

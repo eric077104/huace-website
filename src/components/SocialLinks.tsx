@@ -20,7 +20,7 @@ export default function SocialLinks({ urls, className = "" }: { urls: SocialUrls
     {socialPlatforms.map(({ key, label, field }) => {
       const href = urls[field];
       if (!href) return null;
-      return <a key={key} className="social-link" href={href} target="_blank" rel="noopener noreferrer" aria-label={`HC 畫策整合行銷 ${label}`} onClick={() => track("social_click", { platform: key })}>
+      return <a key={key} className="social-link" href={href} target="_blank" rel="noopener noreferrer" aria-label={`畫策整合行銷 ${label}`} onClick={() => track("social_click", { platform: key })}>
         <SocialIcon platform={key}/>
       </a>;
     })}

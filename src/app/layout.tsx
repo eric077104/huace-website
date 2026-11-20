@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(siteUrl),
     icons: { icon: "/brand/favicon.png", apple: "/brand/apple-icon.png" },
-    title: { default: settings.seoTitle, template: "%s｜HC 畫策" },
+    title: { default: settings.seoTitle, template: "%s｜畫策整合行銷" },
     description: settings.seoDescription,
     alternates: { canonical: "/" },
     openGraph: { type: "website", locale: "zh_TW", siteName: settings.brandName, title: settings.seoTitle, description: settings.seoDescription, images: settings.defaultSeo?.ogImage?.asset?.url ? [settings.defaultSeo.ogImage.asset.url] : ["/brand/og-image.png"] },

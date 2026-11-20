@@ -17,11 +17,11 @@ export const solutions: Solution[] = [
 export const cases: CaseStudy[] = [{ slug: "case-placeholder", name: "案例內容準備中", category: "精選案例", tags: ["Strategy", "Content"], description: "案例將於取得公開授權並確認專案內容後更新。", placeholder: true }];
 export const categories = ["品牌策略", "內容與創意", "成效行銷", "AI 與數位應用"];
 export const articles: Article[] = [{ slug: "insights-coming-soon", title: "Insights 內容準備中", category: "品牌策略", excerpt: "文章將於內容確認後發布。", publishedAt: "2026-11-19", body: "" }];
-export const siteSettings: SiteSettings = { companyName: "畫策管理顧問有限公司", brandName: "HC 畫策整合行銷", email: "chunk.huace@gmail.com", phone: "", lineUrl: "https://lihi1.cc/8QRPx", lineId: "@950mcddk", facebookUrl: "https://www.facebook.com/HuaCE.online", instagramUrl: "https://www.instagram.com/hc.digital.tw/", threadsUrl: "https://www.threads.com/@hc.digital.tw", socialUrl: "", privacyNotice: "個資告知內容將於確認後提供。", insightsEnabled: false, seoTitle: "畫策整合行銷 HC｜讓行銷策略、內容與投放，朝同一個成長目標前進。", seoDescription: "整合行銷策略、品牌內容、數位廣告與 AI 數位應用，協助企業建立可持續運作的行銷成長系統。", defaultSeo: { title: "畫策整合行銷 HC｜讓行銷策略、內容與投放，朝同一個成長目標前進。", description: "整合行銷策略、品牌內容、數位廣告與 AI 數位應用，協助企業建立可持續運作的行銷成長系統。" } };
+export const siteSettings: SiteSettings = { companyName: "畫策整合行銷", brandName: "畫策整合行銷", email: "chunk.huace@gmail.com", phone: "", lineUrl: "https://lihi1.cc/8QRPx", lineId: "@950mcddk", facebookUrl: "https://www.facebook.com/HuaCE.online", instagramUrl: "https://www.instagram.com/hc.digital.tw/", threadsUrl: "https://www.threads.com/@hc.digital.tw", socialUrl: "", privacyNotice: "個資告知內容將於確認後提供。", insightsEnabled: false, seoTitle: "畫策整合行銷｜讓行銷策略、內容與投放，朝同一個成長目標前進。", seoDescription: "整合行銷策略、品牌內容、數位廣告與 AI 數位應用，協助企業建立可持續運作的行銷成長系統。", defaultSeo: { title: "畫策整合行銷｜讓行銷策略、內容與投放，朝同一個成長目標前進。", description: "整合行銷策略、品牌內容、數位廣告與 AI 數位應用，協助企業建立可持續運作的行銷成長系統。" } };
 
 export const homePage: HomePageContent = {
   title: "讓行銷策略、內容與投放，朝同一個成長目標前進。",
-  subtitle: "HC 畫策整合行銷，從企業目標出發，整合品牌策略、內容製作、成效行銷與 AI 數位應用，協助團隊把行銷工作規劃得更清楚、執行得更連貫。",
+  subtitle: "畫策整合行銷，從企業目標出發，整合品牌策略、內容製作、成效行銷與 AI 數位應用，協助團隊把行銷工作規劃得更清楚、執行得更連貫。",
   primaryCta: "了解我們的服務",
   secondaryCta: "洽談合作",
   positioning: "企業的外部數位行銷與成長合作夥伴。",
@@ -30,6 +30,6 @@ export const homePage: HomePageContent = {
 };
 export const aboutPage: AboutPageContent = {
   title: "不只完成行銷任務，也建立運作方式。",
-  body: "畫策不只是提供單一行銷服務，而是依企業階段、商業目標及市場需求，整合策略、內容、媒體與數位工具，協助企業建立適合自身的行銷運作模式。",
+  body: "畫策整合行銷不只是提供單一行銷服務，而是依企業階段、商業目標及市場需求，整合策略、內容、媒體與數位工具，協助企業建立適合自身的行銷運作模式。",
   capabilities: ["連結商業目標", "整合不同專業", "建立可持續流程", "依數據持續優化"],
 };

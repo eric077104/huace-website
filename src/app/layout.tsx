@@ -4,6 +4,7 @@ import "./globals.css";
 import Analytics from "@/components/Analytics";
 import { Footer, Header } from "@/components/SiteChrome";
 import { getSettings } from "@/lib/sanity";
+import { defaultOgImage } from "@/lib/pageMetadata";
 
 const noto = Noto_Sans_TC({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-noto", preload: false, display: "swap" });
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -18,7 +19,8 @@ export async function generateMetadata(): Promise<Metadata> {
     title: { default: settings.seoTitle, template: "%s｜畫策整合行銷" },
     description: settings.seoDescription,
     alternates: { canonical: "/" },
-    openGraph: { type: "website", locale: "zh_TW", siteName: settings.brandName, title: settings.seoTitle, description: settings.seoDescription, images: settings.defaultSeo?.ogImage?.asset?.url ? [settings.defaultSeo.ogImage.asset.url] : ["/brand/og-image.png"] },
+    openGraph: { type: "website", locale: "zh_TW", siteName: "畫策整合行銷", title: settings.seoTitle, description: settings.seoDescription, images: [defaultOgImage] },
+    twitter: { card: "summary_large_image", title: settings.seoTitle, description: settings.seoDescription, images: [defaultOgImage] },
   };
 }
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

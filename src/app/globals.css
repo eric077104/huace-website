@@ -275,3 +275,5 @@
 
 /* Keep the home mobile service list at the §12 fold position. */
 @media(max-width:767px){#services .sec-head{margin-bottom:58px}}
+
+.contact-form .privacy-notice{max-width:100%;padding:16px;border:1px solid var(--line);border-radius:8px;background:var(--paper-1);color:var(--on-light-2);font-size:14px;line-height:1.75;overflow-wrap:anywhere;word-break:break-word}.contact-form .privacy-notice h2{margin:0 0 10px;color:var(--on-light-1);font-size:16px;line-height:1.5}.contact-form .privacy-notice p{margin:0 0 10px}.contact-form .privacy-notice p:last-child{margin-bottom:0}.contact-form .consent{min-width:0}.contact-form .consent span{min-width:0;overflow-wrap:anywhere;word-break:break-word}

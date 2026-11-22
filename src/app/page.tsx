@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import TrackedLink from "@/components/TrackedLink";
 import HeroField, { GrowthLoop } from "@/components/HeroField";
-import { CaseFeature, CTA, Process, ServiceBento, SolutionList, JsonLd } from "@/components/Sections";
+import { CTA, Process, ServiceBento, SolutionList, JsonLd } from "@/components/Sections";
 import { getHomePage, getSettings } from "@/lib/sanity";
 import { CjkWords } from "@/lib/cjkWords";
 import { pageMetadata } from "@/lib/pageMetadata";
@@ -10,4 +10,4 @@ export default async function HomePage() { const [home, settings] = await Promis
   <section className="section section-dark" id="services"><div className="container"><div className="sec-head"><div className="sec-title"><p className="eyebrow">Capabilities <span className="accent">/ 01—04</span></p><h2 className="h2"><CjkWords text="四個能力，一套成長系統。" /></h2></div><div className="sec-aside"><p className="body-copy">先了解企業目標與目前挑戰，再依需求組合策略、內容、成效行銷與數位應用。</p></div></div><ServiceBento/></div></section>
   <section className="section section-light" id="process"><div className="container"><div className="sec-head"><div className="sec-title"><p className="eyebrow">How we work <span className="accent">/ 5 steps</span></p><h2 className="h2"><CjkWords text="從理解問題，" /><br className="br-m"/><CjkWords text="走到持續優化。" /></h2></div></div><Process/></div></section>
   <section className="section section-white" id="solutions"><div className="container"><div className="sec-head"><div className="sec-title"><p className="eyebrow">Integrated solutions</p><h2 className="h2"><CjkWords text="依需求組合，" /><br className="br-mobile"/><CjkWords text="不只採購單項服務。" /></h2></div><div className="sec-aside keep-m"><p className="body-copy">{home.solutionsIntro}</p></div></div><SolutionList/></div></section>
-  <section className="section section-dark" id="work"><div className="container"><div className="sec-head"><div className="sec-title"><p className="eyebrow">Selected work</p><h2 className="h2"><CjkWords text="讓策略走進真實專案。" /></h2></div><div className="sec-aside keep-m"><p className="body-copy">案例內容將於取得公開授權並確認專案資訊後更新。</p></div></div><CaseFeature/></div></section><CTA/></>; }
+  <CTA/></>; }
